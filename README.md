@@ -27,7 +27,7 @@ git clone https://github.com/kskovar/MMM-DaysUntil.git # clone this repository
 ````
 
 
-## customization
+## Customization
 
   Copy the code from the MMM-DaysUntil.css to your own custom.css and change whatever you like about the font, color etc.
   Using the configuration options singular and plural you can change the language of day/days left.
