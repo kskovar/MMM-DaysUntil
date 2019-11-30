@@ -1,13 +1,13 @@
 /* global Module */
 
 /* Magic Mirror
- * Module: MMM-daysUntil
+ * Module: MMM-DaysUntil
  *
  * By Kris Kovar
  * MIT Licensed.
  */
 
-Module.register("MMM-daysUntil", {
+Module.register("MMM-DaysUntil", {
     // Default module config.
     defaults: {
         eventdate: "2020-01-01 24:00:00", // YYYY-MM-DD HH:MM:SS
@@ -36,14 +36,14 @@ Module.register("MMM-daysUntil", {
 
     // Define required styles
     getStyles: function () {
-        return ["MMM-daysUntil.css"];
+        return ["MMM-DaysUntil.css"];
     },
 
     // Override dom generator.
     getDom: function() {
-        var daysUntil = new Date(this.config.daysUntil);
+        var DaysUntil = new Date(this.config.DaysUntil);
         var now = new Date();
-        var timeparser = Date.parse(daysUntil) - Date.parse(now);
+        var timeparser = Date.parse(DaysUntil) - Date.parse(now);
         daysLeft = Math.floor(timeparser/(1000*60*60*24));
 
         var wrapper = document.createElement("div");
