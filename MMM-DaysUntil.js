@@ -41,9 +41,9 @@ Module.register("MMM-DaysUntil", {
 
     // Override dom generator.
     getDom: function() {
-        var DaysUntil = new Date(this.config.DaysUntil);
+        var eventdate = new Date(this.config.DaysUntil);
         var now = new Date();
-        var timeparser = Date.parse(DaysUntil) - Date.parse(now);
+        var timeparser = Date.parse(eventdate) - Date.parse(now);
         daysLeft = Math.floor(timeparser/(1000*60*60*24));
 
         var wrapper = document.createElement("div");
