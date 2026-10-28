@@ -1,14 +1,53 @@
-.timeLeft {
-  Font-size: 40px;
-  color: #72b8ff;
+/* MMM-DaysUntil hero layout.
+ * Colors and the number size are set from config.js and exposed as
+ * CSS variables (--dd-accent, --dd-text, --dd-muted, --dd-number-size).
+ */
+
+.daysuntil {
+  text-align: center;
+  display: block;
 }
 
-.timeEnded {
-  Font-size: 25x;
-  color: white;
+.daysuntil .dd-label {
+  font-size: 16px;
+  color: var(--dd-muted);
+  letter-spacing: 0.04em;
 }
 
-.passed {
-  font-size: 30px;
-  color: gray;
+.daysuntil .dd-number {
+  font-size: var(--dd-number-size, 96px);
+  font-weight: 500;
+  color: var(--dd-text);
+  line-height: 1;
+  margin: 6px 0 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.daysuntil .dd-unit {
+  font-size: 20px;
+  color: var(--dd-accent);
+}
+
+.daysuntil .dd-today {
+  font-size: 48px;
+  font-weight: 500;
+  color: var(--dd-text);
+  margin: 12px 0;
+}
+
+.daysuntil .dd-ended {
+  font-size: 20px;
+  color: var(--dd-muted);
+  margin: 12px 0;
+}
+
+.daysuntil .dd-date {
+  font-size: 13px;
+  color: var(--dd-muted);
+  margin-top: 10px;
+}
+
+.daysuntil .dd-error {
+  font-size: 14px;
+  color: #f87171;
 }

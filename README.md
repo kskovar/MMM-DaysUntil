@@ -1,47 +1,56 @@
 # MMM-DaysUntil
 
-This module for the [MagicMirror](https://github.com/MichMich/MagicMirror) shows the number of days left to a specific date.
+This module for the [MagicMirror](https://github.com/MichMich/MagicMirror) shows a large countdown: the number of days left until a specific date.
 
 ## Installation
 
-  1\. Execute the following commands to install the module:
+1. Navigate to your modules folder and clone the repository:
 
 ```bash
-cd ~/MagicMirror/modules # navigate to module folder
-git clone https://github.com/kskovar/MMM-DaysUntil.git # clone this repository
+cd ~/MagicMirror/modules
+git clone https://github.com/kskovar/MMM-DaysUntil.git
 ```
 
-  2\. Then, add the following into the `modules` section of your `config/config.js` file:
+2. Add the following to the `modules` section of your `config/config.js` file:
 
-````javascript
+```javascript
 {
     module: 'MMM-DaysUntil',
-    position: 'top_center', // This can be any of the regions, best results in center regions
+    position: 'top_center', // Any region works; center regions look best
     config: {
-        eventdate: "2018-02-23 24:00:00", // YYYY-MM-DD HH:MM:SS, Do not alter the time, just the date
-        toWhat: "Days Until New Years Day!",
-        
-        // See 'Configuration options' for more information.
+        eventdate: "2027-01-01",      // YYYY-MM-DD
+        toWhat: "New Year's Day",
+        // See "Configuration options" below for everything else.
     }
 },
-````
+```
 
-
-## Customization
-
-  Copy the code from the MMM-DaysUntil.css to your own custom.css and change whatever you like about the font, color etc.
-  Using the configuration options singular and plural you can change the language of day/days left.
+3. Restart MagicMirror.
 
 ## Configuration options
 
-The following properties can be configured:
-
 | option | description |
 | ------------- | ------------- |
-| `updateInterval` | time between updates in ms, default is `60 * 60 * 1000` (1 hour) |
-| `toWhat` | the title of your countdown event |
-| `singular` | what it should say when it's only one day left, default is `Day Left` |
-| `plural` | what it should say when it's more days left, default is `Days Left` |
-| `eventdate` | date and time as a string, the end day of the countdown, format is `YYYY-MM-DD HH:MM:SS`, default is `"2020-01-01 24:00:00"`, don't alter the hour, keep it at `24:00:00` |
-| `present` | What it says when the day is finally here! |
-| `timesUp`| What it says when the day has went and gone, default is `Here's to another great year!` |
+| `eventdate` | The target date as `YYYY-MM-DD`, for example `"2027-07-04"`. A time after the date is allowed but ignored. Default `"2027-01-01"`. |
+| `toWhat` | The title shown above the number. Default `"New Year's Day"`. |
+| `singular` | Unit when exactly one day is left. Default `"day left"`. |
+| `plural` | Unit when two or more days are left. Default `"days left"`. |
+| `present` | Shown on the day itself. Default `"Today!"`. |
+| `timesUp` | Shown after the date has passed. Default `"Here's to another great year!"`. |
+| `showDate` | Show the target date under the number. Default `true`. |
+| `numberSize` | Size of the big number in pixels. Default `96`. |
+| `accentColor` | Color of the unit label. Default `"#72b8ff"`. |
+| `textColor` | Color of the number and the title. Default `"#ffffff"`. |
+| `mutedColor` | Color of the title's label and the date. Default `"#9aa4b2"`. |
+| `updateInterval` | Time between refreshes in milliseconds. Default `60 * 60 * 1000` (1 hour). The minimum is 10 minutes. The count also refreshes at local midnight. |
+
+## Customization
+
+- Change colors and size in `config.js` with `accentColor`, `textColor`, `mutedColor`, and `numberSize`.
+- For more control, copy the rules from `MMM-DaysUntil.css` into your own `custom.css` and change them there.
+- Use `singular` and `plural` to change the language of the unit.
+
+## Troubleshooting
+
+- If the module shows "Check eventdate in config.js", the date isn't in `YYYY-MM-DD` format. Check for typos such as a missing zero (`2027-1-1`).
+- If the count is off by a day, check that `eventdate` is the date you intend. The count is based on your computer's local date.
